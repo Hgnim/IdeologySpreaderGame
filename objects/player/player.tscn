@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ctoqo0xy1u28"]
+
+[ext_resource type="PackedScene" uid="uid://juibs1swaixe" path="res://objects/entityBase/entityBase.tscn" id="1_cqmt1"]
+[ext_resource type="Script" uid="uid://gpplyy6puvxp" path="res://objects/player/Player.cs" id="2_g7ett"]
+
+[node name="player" unique_id=1188330280 instance=ExtResource("1_cqmt1")]
+script = ExtResource("2_g7ett")
+
+[node name="Camera2D" type="Camera2D" parent="." index="2" unique_id=559762278]
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
