@@ -1,1 +1,1 @@
-# IdeologySpreaderGame
+**注意，该游戏仅供娱乐，不代表任何立场，请勿过分解读。**
