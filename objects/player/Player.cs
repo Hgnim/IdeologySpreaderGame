@@ -29,4 +29,8 @@ public partial class Player : EntityBase
 			LinearVelocity = LinearVelocity.Normalized() * maxSpeed;
 		}
 	}
+
+	protected override void On_area2d_areaEntered(Area2D area) {
+		GD.Print("test");
+	}
 }

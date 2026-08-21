@@ -2,7 +2,7 @@ using Godot;
 using IdeologySpreaderGame.data.entityBase;
 using System;
 
-public abstract partial class EntityBase : RigidBody2D
+public partial class EntityBase : RigidBody2D
 {
 	/// <summary>
 	/// 默认使用的意识形态
@@ -14,12 +14,15 @@ public abstract partial class EntityBase : RigidBody2D
 
 	internal Sprite2D ideology;
 	internal Label exp;
+	internal Label loyalty;
 	public override void _Ready() {
 		ideology = GetNode<Sprite2D>("ideology");
 		exp = GetNode<Label>("exp");
+		loyalty = GetNode<Label>("loyalty");
 
 		EData.Ideology_Change += Ideology_Change;
 		EData.Exp_Change += Exp_Change;
+		EData.Loyalty_Change += Loyalty_Change;
 
 		EData.Ideology = defIdeology;
 	}
@@ -38,4 +41,7 @@ public abstract partial class EntityBase : RigidBody2D
 		}
 	}
 	void Exp_Change(uint exp) => this.exp.Text = exp.ToString();
+	void Loyalty_Change(int loy) => loyalty.Text = loy.ToString();
+
+	protected virtual void On_area2d_areaEntered(Area2D area) { }
 }

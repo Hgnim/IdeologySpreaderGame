@@ -32,5 +32,18 @@ namespace IdeologySpreaderGame.data.entityBase {
 				Exp_Change?.Invoke(Exp);
 			}
 		}
+
+		private int loyalty = 0;
+		internal Action<int> Loyalty_Change;
+		/// <summary>
+		/// 忠诚度
+		/// </summary>
+		internal int Loyalty {
+			get => loyalty;
+			set {
+				loyalty = value;
+				Loyalty_Change?.Invoke(Loyalty);
+			}
+		}
 	}
 }

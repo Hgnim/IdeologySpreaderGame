@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://juibs1swaixe"]
 
+[ext_resource type="Script" uid="uid://c8qemqt8rer7f" path="res://objects/entityBase/EntityBase.cs" id="1_rkw4c"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkw4c"]
 size = Vector2(40, 40)
 
 [node name="entityBase" type="RigidBody2D" unique_id=1188330280]
 gravity_scale = 0.0
 linear_damp = 10.0
+script = ExtResource("1_rkw4c")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1842868055]
 
@@ -48,3 +51,21 @@ grow_vertical = 2
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="loyalty" type="Label" parent="." unique_id=1548921829]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = -31.0
+offset_right = 25.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="Area2D" to="." method="On_area2d_areaEntered"]
