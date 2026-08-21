@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bqk5o8wyhip0j"]
+
+[ext_resource type="PackedScene" uid="uid://juibs1swaixe" path="res://objects/entityBase/entityBase.tscn" id="1_nxjfv"]
+[ext_resource type="Script" uid="uid://hd1c666uhisf" path="res://objects/npc/Npc.cs" id="2_15dke"]
+
+[node name="npc" unique_id=1188330280 instance=ExtResource("1_nxjfv")]
+script = ExtResource("2_15dke")

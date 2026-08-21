@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://n7okfek8ewou"]
 
 [ext_resource type="PackedScene" uid="uid://ctoqo0xy1u28" path="res://objects/player/player.tscn" id="1_hyk8p"]
-[ext_resource type="PackedScene" uid="uid://juibs1swaixe" path="res://objects/entityBase/entityBase.tscn" id="2_iuonh"]
+[ext_resource type="PackedScene" uid="uid://bqk5o8wyhip0j" path="res://objects/npc/npc.tscn" id="2_iuonh"]
 
 [node name="main" type="Node2D" unique_id=363851089]
 
 [node name="player" parent="." unique_id=1188330280 instance=ExtResource("1_hyk8p")]
 position = Vector2(643, 479)
 
-[node name="entityBase" parent="." unique_id=100810747 instance=ExtResource("2_iuonh")]
-position = Vector2(440, 329)
+[node name="npc" parent="." unique_id=896853560 instance=ExtResource("2_iuonh")]
+position = Vector2(446, 429)
+defIdeology = 2
