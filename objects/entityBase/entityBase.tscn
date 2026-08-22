@@ -9,6 +9,9 @@ bounce = 1.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkw4c"]
 size = Vector2(40, 40)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rkw4c"]
+radius = 1500.0
+
 [node name="entityBase" type="RigidBody2D" unique_id=1188330280]
 physics_material_override = SubResource("PhysicsMaterial_rkw4c")
 gravity_scale = 0.0
@@ -75,4 +78,13 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="tracker" type="Area2D" parent="." unique_id=1954293126]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tracker" unique_id=175424472]
+shape = SubResource("CircleShape2D_rkw4c")
+
 [connection signal="area_entered" from="Area2D" to="." method="On_area2d_areaEntered"]
+[connection signal="area_entered" from="tracker" to="." method="On_tracker_areaEntered"]
+[connection signal="area_exited" from="tracker" to="." method="On_tracker_areaExited"]

@@ -1,29 +1,45 @@
 [gd_scene format=3 uid="uid://n7okfek8ewou"]
 
 [ext_resource type="PackedScene" uid="uid://ctoqo0xy1u28" path="res://objects/player/player.tscn" id="1_hyk8p"]
-[ext_resource type="PackedScene" uid="uid://bqk5o8wyhip0j" path="res://objects/npc/npc.tscn" id="2_iuonh"]
+[ext_resource type="Script" uid="uid://dj5p0eolyxdxa" path="res://scenes/main/Main.cs" id="1_iuonh"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_k2fmo"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_l3cfh"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6q06x"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iuonh"]
+normal = Vector2(1, 0)
 
 [node name="main" type="Node2D" unique_id=363851089]
+script = ExtResource("1_iuonh")
 
 [node name="player" parent="." unique_id=1188330280 instance=ExtResource("1_hyk8p")]
 position = Vector2(643, 479)
 physics_material_override = null
 linear_damp = 10.0
-moveForce = 1500.0
-maxSpeed = 300.0
 
-[node name="npc" parent="." unique_id=896853560 instance=ExtResource("2_iuonh")]
-position = Vector2(446, 429)
-physics_material_override = null
-linear_damp = 10.0
-initvalIdeology = 2
-initvalExp = 10
-initvalLoyalty = 5
+[node name="wb4" type="StaticBody2D" parent="." unique_id=47066270]
+position = Vector2(3000, 3000)
 
-[node name="npc2" parent="." unique_id=671945548 instance=ExtResource("2_iuonh")]
-position = Vector2(285, 510)
-physics_material_override = null
-linear_damp = 10.0
-initvalIdeology = 1
-initvalExp = 5
-initvalLoyalty = 10
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wb4" unique_id=1587431094]
+shape = SubResource("WorldBoundaryShape2D_k2fmo")
+
+[node name="wb3" type="StaticBody2D" parent="." unique_id=715459404]
+position = Vector2(3000, 3000)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wb3" unique_id=1558026073]
+shape = SubResource("WorldBoundaryShape2D_l3cfh")
+
+[node name="wb2" type="StaticBody2D" parent="." unique_id=1901756688]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wb2" unique_id=1919219534]
+shape = SubResource("WorldBoundaryShape2D_6q06x")
+
+[node name="wb" type="StaticBody2D" parent="." unique_id=129501879]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wb" unique_id=255066002]
+shape = SubResource("WorldBoundaryShape2D_iuonh")

@@ -15,6 +15,14 @@ public partial class EntityBase : RigidBody2D
 	internal uint initvalExp = 0;
 	[Export]
 	internal int initvalLoyalty = 0;
+	/// <summary>
+	/// 最大的移动速度
+	/// </summary>
+	[Export] public float maxSpeed = 300f;
+	/// <summary>
+	/// 移动推力
+	/// </summary>
+	[Export] public float moveForce = 1500f;
 
 	internal EntityData EData { get; set; } = new();
 
@@ -67,21 +75,21 @@ public partial class EntityBase : RigidBody2D
 
 		EntityBase targetEB = area.GetNode<EntityBase>("..");
 
-		if (EData.Ideology == Ideology.none) {
-			EData.Ideology = targetEB.EData.Ideology;
 
-			EData.Exp = targetEB.EData.Exp / 3;
-			EData.Loyalty = targetEB.EData.Loyalty / 3;
+		if (EData.Ideology == targetEB.EData.Ideology) {
+			EData.Loyalty += (int)(targetEB.EData.Exp / 2);
 		}
-		else { 
-			if(EData.Ideology == targetEB.EData.Ideology) {
-				EData.Loyalty += (int)(targetEB.EData.Exp / 2);
-			}
-			else {
+		else {
+			if (targetEB.EData.Ideology != Ideology.none)
 				EData.Loyalty -= (int)targetEB.EData.Exp;
-				if (EData.Loyalty < 0) {
-					targetEB.EData.Exp++;
-					EData.Ideology = targetEB.EData.Ideology;
+			if (EData.Loyalty < 0) {
+				targetEB.EData.Exp++;
+				EData.Ideology = targetEB.EData.Ideology;
+				if (EData.Ideology == Ideology.none) {
+					EData.Exp = targetEB.EData.Exp / 3;
+					EData.Loyalty = targetEB.EData.Loyalty / 3;
+				}
+				else {
 					EData.Loyalty = 0;
 					EData.Exp = EData.Exp / 2 + targetEB.EData.Exp / 3;
 				}
@@ -90,4 +98,7 @@ public partial class EntityBase : RigidBody2D
 
 		//areaEntered_cooldown.Start();
 	}
+
+	protected virtual void On_tracker_areaEntered(Area2D area) { }
+	protected virtual void On_tracker_areaExited(Area2D area) { }
 }

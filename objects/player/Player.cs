@@ -10,14 +10,7 @@ public partial class Player : EntityBase {
 		base._Ready();
 	}
 
-	/// <summary>
-	/// 移动推力
-	/// </summary>
-	[Export] public float moveForce = 1500f;
-	/// <summary>
-	/// 最大速度
-	/// </summary>
-	[Export] public float maxSpeed = 300f;
+	
 	public override void _Process(double delta)
 	{
 		Vector2 keyInput = Input.GetVector("moveLeft", "moveRight", "moveUp", "moveDown");

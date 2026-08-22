@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://c07p0mmgxm2qv"]
+
+[ext_resource type="PackedScene" uid="uid://n7okfek8ewou" path="res://scenes/main/main.tscn" id="1_g262t"]
+[ext_resource type="PackedScene" uid="uid://bqk5o8wyhip0j" path="res://objects/npc/npc.tscn" id="2_wi6r5"]
+
+[node name="main" unique_id=363851089 instance=ExtResource("1_g262t")]
+
+[node name="npc6" parent="." index="5" unique_id=1188330280 instance=ExtResource("2_wi6r5")]
+position = Vector2(318, 1792)
+
+[node name="npc7" parent="." index="6" unique_id=1516713981 instance=ExtResource("2_wi6r5")]
+position = Vector2(297, 2366)
+
+[node name="npc8" parent="." index="7" unique_id=718327095 instance=ExtResource("2_wi6r5")]
+position = Vector2(281, 2097)
+
+[node name="npc9" parent="." index="8" unique_id=1360714017 instance=ExtResource("2_wi6r5")]
+position = Vector2(217, 2510)
+
+[node name="npc10" parent="." index="9" unique_id=2070945684 instance=ExtResource("2_wi6r5")]
+position = Vector2(271, 2752)
+
+[node name="npc" parent="." index="10" unique_id=2003565854 instance=ExtResource("2_wi6r5")]
+position = Vector2(2640, 475)
+
+[node name="npc2" parent="." index="11" unique_id=1104450462 instance=ExtResource("2_wi6r5")]
+position = Vector2(2619, 1049)
+
+[node name="npc3" parent="." index="12" unique_id=1296248106 instance=ExtResource("2_wi6r5")]
+position = Vector2(2603, 780)
+
+[node name="npc4" parent="." index="13" unique_id=2058203976 instance=ExtResource("2_wi6r5")]
+position = Vector2(2539, 1193)
+
+[node name="npc5" parent="." index="14" unique_id=492258416 instance=ExtResource("2_wi6r5")]
+position = Vector2(2593, 1435)
+
+[node name="npc11" parent="." index="15" unique_id=1496350296 instance=ExtResource("2_wi6r5")]
+position = Vector2(1613, 1711)
+initvalLoyalty = 100
+
+[node name="npc12" parent="." index="16" unique_id=140321334 instance=ExtResource("2_wi6r5")]
+position = Vector2(1592, 2285)
+
+[node name="npc13" parent="." index="17" unique_id=1254419055 instance=ExtResource("2_wi6r5")]
+position = Vector2(1576, 2016)
+initvalLoyalty = 100
+
+[node name="npc14" parent="." index="18" unique_id=792744194 instance=ExtResource("2_wi6r5")]
+position = Vector2(1512, 2429)
+initvalLoyalty = 100
+
+[node name="npc16" parent="." index="19" unique_id=177080113 instance=ExtResource("2_wi6r5")]
+position = Vector2(1500, 321)
+initvalIdeology = 1
+initvalExp = 10
+initvalLoyalty = 50
+
+[node name="npc15" parent="." index="20" unique_id=601450316 instance=ExtResource("2_wi6r5")]
+position = Vector2(1566, 2671)
+
+[node name="npc17" parent="." index="21" unique_id=1118943612 instance=ExtResource("2_wi6r5")]
+position = Vector2(2771, 2807)
+initvalIdeology = 2
+initvalExp = 10
+initvalLoyalty = 100
+
+[node name="npc18" parent="." index="22" unique_id=222751849 instance=ExtResource("2_wi6r5")]
+position = Vector2(935, 1743)
+
+[node name="npc19" parent="." index="23" unique_id=872720911 instance=ExtResource("2_wi6r5")]
+position = Vector2(914, 2317)
+
+[node name="npc20" parent="." index="24" unique_id=866995192 instance=ExtResource("2_wi6r5")]
+position = Vector2(898, 2048)
+initvalLoyalty = 1000
+
+[node name="npc21" parent="." index="25" unique_id=1478492415 instance=ExtResource("2_wi6r5")]
+position = Vector2(834, 2461)
+
+[node name="npc22" parent="." index="26" unique_id=1412377123 instance=ExtResource("2_wi6r5")]
+position = Vector2(888, 2703)
+
+[node name="npc23" parent="." index="27" unique_id=1424394854 instance=ExtResource("2_wi6r5")]
+position = Vector2(2151, 960)
+
+[node name="npc24" parent="." index="28" unique_id=833048400 instance=ExtResource("2_wi6r5")]
+position = Vector2(2130, 1534)
+
+[node name="npc25" parent="." index="29" unique_id=2098189506 instance=ExtResource("2_wi6r5")]
+position = Vector2(2114, 1265)
+
+[node name="npc26" parent="." index="30" unique_id=1647363053 instance=ExtResource("2_wi6r5")]
+position = Vector2(2050, 1678)
+
+[node name="npc27" parent="." index="31" unique_id=1210426527 instance=ExtResource("2_wi6r5")]
+position = Vector2(2104, 1920)
+
+[node name="npc28" parent="." index="32" unique_id=2017567276 instance=ExtResource("2_wi6r5")]
+position = Vector2(668, 1198)
+
+[node name="npc29" parent="." index="33" unique_id=1355920054 instance=ExtResource("2_wi6r5")]
+position = Vector2(647, 1772)
+
+[node name="npc30" parent="." index="34" unique_id=1453759257 instance=ExtResource("2_wi6r5")]
+position = Vector2(631, 1503)
+
+[node name="npc31" parent="." index="35" unique_id=1410697033 instance=ExtResource("2_wi6r5")]
+position = Vector2(567, 1916)
+
+[node name="npc32" parent="." index="36" unique_id=641355705 instance=ExtResource("2_wi6r5")]
+position = Vector2(621, 2158)
+
+[node name="npc33" parent="." index="37" unique_id=1518781261 instance=ExtResource("2_wi6r5")]
+position = Vector2(2825, 1059)
+
+[node name="npc34" parent="." index="38" unique_id=89298838 instance=ExtResource("2_wi6r5")]
+position = Vector2(2804, 1633)
+
+[node name="npc35" parent="." index="39" unique_id=1115445006 instance=ExtResource("2_wi6r5")]
+position = Vector2(2788, 1364)
+
+[node name="npc36" parent="." index="40" unique_id=764230311 instance=ExtResource("2_wi6r5")]
+position = Vector2(2724, 1777)
+
+[node name="npc37" parent="." index="41" unique_id=818536377 instance=ExtResource("2_wi6r5")]
+position = Vector2(2778, 2019)
+
+[node name="npc38" parent="." index="42" unique_id=1901928788 instance=ExtResource("2_wi6r5")]
+position = Vector2(1380, 869)
+
+[node name="npc39" parent="." index="43" unique_id=300262934 instance=ExtResource("2_wi6r5")]
+position = Vector2(1359, 1443)
+
+[node name="npc40" parent="." index="44" unique_id=183093031 instance=ExtResource("2_wi6r5")]
+position = Vector2(1343, 1174)
+
+[node name="npc41" parent="." index="45" unique_id=290288951 instance=ExtResource("2_wi6r5")]
+position = Vector2(1279, 1587)
+
+[node name="npc42" parent="." index="46" unique_id=1995190429 instance=ExtResource("2_wi6r5")]
+position = Vector2(1333, 1829)
