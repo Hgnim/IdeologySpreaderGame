@@ -46,7 +46,7 @@ jobs:
 
       #编译Release模式的C#项目
       - name: Build .NET Project
-        run: dotnet build --configuration Release --no-restore
+        run: dotnet build --configuration ExportRelease --no-restore
 
       #导出
       - name: Export Windows Build
