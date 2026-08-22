@@ -3,3 +3,6 @@
 /android/
 
 .vs
+
+/dist/**/*
+!/dist/.gdignore
