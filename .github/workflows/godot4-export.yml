@@ -1,0 +1,62 @@
+name: Export Godot 4 .NET to Windows
+
+on:
+  workflow_dispatch:  #仅手动触发
+
+jobs:
+  export-windows:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true #启用lfs支持
+
+      - name: Pull LFS files #拉取lfs中的实际文件
+        run: git lfs pull
+
+      # Install the .NET Core workload
+      - name: Install .NET Core 8.0
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      #安装Godot dotnet和导出模板
+      - name: Install Godot .NET and Export Templates
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: 4.6.2
+          use-dotnet: true
+          include-templates: true
+
+      #缓存.godot导入文件以加速后续构建
+#      - name: Cache .godot imports
+#        uses: actions/cache@v4
+#        with:
+#          path: .godot/
+#          key: godot-imports-${{ runner.os }}-${{ hashFiles('**/*.gd', '**/*.cs', '**/*.tscn', '**/*.tres') }}
+#          restore-keys: godot-imports-${{ runner.os }}-
+
+      #恢复NuGet包
+      - name: Restore NuGet Packages
+        run: dotnet restore
+
+      #编译Release模式的C#项目
+      - name: Build .NET Project
+        run: dotnet build --configuration Release --no-restore
+
+      #导出
+      - name: Export Windows Build
+        run: godot --headless --path . --export-release "Windows Desktop"
+        env:
+          #避免Godot在CI中弹出窗口
+          DISPLAY: ""
+
+      #上传构建产物
+      - name: Upload Build files
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-build_release
+          path: dist/
+          if-no-files-found: error
