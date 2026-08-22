@@ -2,8 +2,9 @@ name: Export Godot 4 .NET to Windows
 
 on:
   push:
-    branches: [compileTest]
-  workflow_dispatch:  #仅手动触发
+    tags:
+      - 'v*'#开头带v的tag将触发工作流
+#  workflow_dispatch:
 
 jobs:
   export-windows:
@@ -56,9 +57,25 @@ jobs:
           DISPLAY: ""
 
       #上传构建产物
-      - name: Upload Build files
-        uses: actions/upload-artifact@v4
+#      - name: Upload Build files
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: windows-build_release-${{ github.ref_name }}
+#          path: dist/
+#          if-no-files-found: error
+
+      #打包
+      - name: Package build files
+        run: |
+          cd dist
+          zip -r ../IdeologySpreaderGame_${{ github.ref_name }}-windows.zip .
+          cd ..
+
+      #创建Release并上传打包好的内容
+      - name: Upload to GitHub Release
+        uses: softprops/action-gh-release@v2
         with:
-          name: windows-build_release
-          path: dist/
-          if-no-files-found: error
+          files: IdeologySpreaderGame_${{ github.ref_name }}-windows.zip
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
