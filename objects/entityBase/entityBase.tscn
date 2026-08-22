@@ -2,15 +2,22 @@
 
 [ext_resource type="Script" uid="uid://c8qemqt8rer7f" path="res://objects/entityBase/EntityBase.cs" id="1_rkw4c"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rkw4c"]
+friction = 0.5
+bounce = 1.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkw4c"]
 size = Vector2(40, 40)
 
 [node name="entityBase" type="RigidBody2D" unique_id=1188330280]
+physics_material_override = SubResource("PhysicsMaterial_rkw4c")
 gravity_scale = 0.0
-linear_damp = 10.0
+linear_damp_mode = 1
 script = ExtResource("1_rkw4c")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1842868055]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1466272437]
 shape = SubResource("RectangleShape2D_rkw4c")

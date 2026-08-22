@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c0bonejemdgw8"
-path="res://.godot/imported/Anarchy.png-4e6db57ecbe9637ed202b272f55a9fdc.ctex"
+path="res://.godot/imported/Anarchism.png-82d2861d22ee241096dedee42f65cfb7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/ideology/Anarchy.png"
-dest_files=["res://.godot/imported/Anarchy.png-4e6db57ecbe9637ed202b272f55a9fdc.ctex"]
+source_file="res://assets/img/ideology/Anarchism.png"
+dest_files=["res://.godot/imported/Anarchism.png-82d2861d22ee241096dedee42f65cfb7.ctex"]
 
 [params]
 

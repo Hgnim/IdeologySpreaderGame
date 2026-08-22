@@ -1,8 +1,9 @@
 using Godot;
-using System;
+using IdeologySpreaderGame.objects.entityBase;
 
-public partial class Player : EntityBase 
-{
+namespace IdeologySpreaderGame.objects.player;
+
+public partial class Player : EntityBase {
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -31,6 +32,7 @@ public partial class Player : EntityBase
 	}
 
 	protected override void On_area2d_areaEntered(Area2D area) {
-		GD.Print("test");
+		//GD.Print(area.GetNode<EntityBase>("..").EData.Ideology);
+		base.On_area2d_areaEntered(area);
 	}
 }
