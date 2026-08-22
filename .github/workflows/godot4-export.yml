@@ -1,6 +1,8 @@
 name: Export Godot 4 .NET to Windows
 
 on:
+  push:
+    branches: [compileTest]
   workflow_dispatch:  #仅手动触发
 
 jobs:
