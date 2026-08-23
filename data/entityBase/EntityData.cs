@@ -7,16 +7,19 @@ namespace IdeologySpreaderGame.data.entityBase {
 		Fascism,
 	}
 	internal class EntityData {
-		private Ideology ideology=Ideology.none;
-		internal Action<Ideology> Ideology_Change;
+		private Ideology? ideology=null;
+		internal delegate void deleg_Ideology_Change(Ideology? newIdeo, Ideology? oldIdeo);
+		internal deleg_Ideology_Change Ideology_Change;
 		/// <summary>
-		/// 意识形态
+		/// 意识形态<br/>
+		/// 为null则表示当前未赋值
 		/// </summary>
-		internal Ideology Ideology {
+		internal Ideology? Ideology {
 			get => ideology;
 			set {
+				entityBase.Ideology? old = Ideology;
 				ideology = value;
-				Ideology_Change?.Invoke(Ideology);
+				Ideology_Change?.Invoke(Ideology, old);
 			}
 		}
 

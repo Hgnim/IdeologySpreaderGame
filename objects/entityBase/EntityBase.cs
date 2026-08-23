@@ -1,5 +1,6 @@
 using Godot;
 using IdeologySpreaderGame.data.entityBase;
+using IdeologySpreaderGame.scenes.main;
 using System;
 
 namespace IdeologySpreaderGame.objects.entityBase;
@@ -30,6 +31,8 @@ public partial class EntityBase : RigidBody2D
 	protected private Label exp;
 	protected private Label loyalty;
 
+	private TeamForceBar tfb;
+
 	/// <summary>
 	/// 碰撞冷却，防止短时间内触发过多次
 	/// </summary>
@@ -42,6 +45,8 @@ public partial class EntityBase : RigidBody2D
 		exp = GetNode<Label>("exp");
 		loyalty = GetNode<Label>("loyalty");
 
+		tfb = GetNode<TeamForceBar>("../ui/teamForceBar");
+
 		EData.Ideology_Change += Ideology_Change;
 		EData.Exp_Change += Exp_Change;
 		EData.Loyalty_Change += Loyalty_Change;
@@ -53,9 +58,10 @@ public partial class EntityBase : RigidBody2D
 		//AddChild(areaEntered_cooldown);
 	}
 
-	void Ideology_Change(Ideology ideo) {
+	void Ideology_Change(Ideology? ideo,Ideology? old) {
 		switch (ideo) {
 			case Ideology.none:
+			case null:
 				ideology.Texture = null;
 				break;
 			case Ideology.Anarchism:
@@ -64,6 +70,12 @@ public partial class EntityBase : RigidBody2D
 			case Ideology.Fascism:
 				ideology.Texture = GD.Load<Texture2D>("res://assets/img/ideology/Fascism.png");
 				break;
+		}
+		if (ideo != null) {
+			tfb.tfData.ChangeTeamForce((Ideology)ideo, +1);
+		}
+		if (old != null) {
+			tfb.tfData.ChangeTeamForce((Ideology)old, -1);
 		}
 	}
 	void Exp_Change(uint exp) => this.exp.Text = exp.ToString();

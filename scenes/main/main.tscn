@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ctoqo0xy1u28" path="res://objects/player/player.tscn" id="1_hyk8p"]
 [ext_resource type="Script" uid="uid://dj5p0eolyxdxa" path="res://scenes/main/Main.cs" id="1_iuonh"]
+[ext_resource type="Script" uid="uid://suilh8setksh" path="res://scenes/main/TeamForceBar.cs" id="3_k2fmo"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_k2fmo"]
 normal = Vector2(-1, 0)
@@ -43,3 +44,14 @@ shape = SubResource("WorldBoundaryShape2D_6q06x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wb" unique_id=255066002]
 shape = SubResource("WorldBoundaryShape2D_iuonh")
+
+[node name="ui" type="CanvasLayer" parent="." unique_id=904203566]
+
+[node name="teamForceBar" type="Panel" parent="ui" unique_id=470257588]
+offset_left = 47.0
+offset_top = 46.0
+offset_right = 376.0
+offset_bottom = 92.0
+script = ExtResource("3_k2fmo")
+BorderWidth = 2.0
+BorderColor = Color(0.13319641, 0.13319641, 0.13319638, 1)
