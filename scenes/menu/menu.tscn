@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ohc3a57webtp"]
 
 [ext_resource type="Script" uid="uid://cr13iqx4fvwf" path="res://scenes/menu/Menu.cs" id="1_klgdb"]
+[ext_resource type="Script" uid="uid://d3s0bh1tdolqc" path="res://scenes/menu/Version.cs" id="2_mcvr8"]
 
 [node name="menu" type="Control" unique_id=208452979]
 layout_mode = 3
@@ -25,10 +26,56 @@ vertical_alignment = 1
 [node name="startGame" type="Button" parent="." unique_id=443342947]
 layout_mode = 0
 offset_left = 515.0
-offset_top = 782.0
+offset_top = 600.0
 offset_right = 765.0
-offset_bottom = 840.0
+offset_bottom = 658.0
 theme_override_font_sizes/font_size = 32
 text = "开始游戏"
+
+[node name="version" type="Label" parent="." unique_id=1729807423]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 883.0
+offset_right = 684.0
+offset_bottom = 917.0
+theme_override_font_sizes/font_size = 24
+text = "版本："
+script = ExtResource("2_mcvr8")
+
+[node name="github" type="Label" parent="." unique_id=1549255669]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 915.0
+offset_right = 104.0
+offset_bottom = 949.0
+theme_override_font_sizes/font_size = 24
+text = "Github: "
+
+[node name="link" type="LinkButton" parent="github" unique_id=29347386]
+layout_mode = 0
+offset_left = 91.0
+offset_right = 675.0
+offset_bottom = 40.0
+theme_override_font_sizes/font_size = 24
+text = "https://github.com/Hgnim/IdeologySpreaderGame"
+uri = "https://github.com/Hgnim/IdeologySpreaderGame"
+
+[node name="license" type="LinkButton" parent="." unique_id=1435142914]
+layout_mode = 0
+offset_left = 821.0
+offset_top = 915.0
+offset_right = 1272.0
+offset_bottom = 955.0
+theme_override_font_sizes/font_size = 24
+text = "GNU General Public License v3.0 许可证"
+uri = "https://github.com/Hgnim/IdeologySpreaderGame/blob/main/LICENSE"
+
+[node name="Label" type="Label" parent="." unique_id=53208252]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 24
+text = "注意，该游戏仅供娱乐，不代表任何立场，请勿过分解读。"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="startGame" to="." method="On_startGame_pressed"]

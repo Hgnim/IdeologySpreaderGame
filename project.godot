@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="IdeologySpreaderGame"
-config/version="0.1.0.20260824-alpha"
+config/version="0.2.0.20260824-alpha"
 run/main_scene="uid://ohc3a57webtp"
 config/features=PackedStringArray("4.6", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
