@@ -29,6 +29,8 @@ namespace IdeologySpreaderGame.scenes.main.teamForceBar {
 			{Ideology.none,Colors.Gray},
 			{Ideology.Anarchism,Colors.Black },
 			{Ideology.Fascism,new Color("#6B5406")},
+			{Ideology.Communism,new Color("#ED1C24") },
+			{Ideology.Capitalism,new Color("#FFC90E") },
 		};
 	}
 }

@@ -59,17 +59,19 @@ public partial class EntityBase : RigidBody2D
 	}
 
 	void Ideology_Change(Ideology? ideo,Ideology? old) {
-		switch (ideo) {
-			case Ideology.none:
-			case null:
-				ideology.Texture = null;
-				break;
-			case Ideology.Anarchism:
-				ideology.Texture = GD.Load<Texture2D>("res://assets/img/ideology/Anarchism.png");
-				break;
-			case Ideology.Fascism:
-				ideology.Texture = GD.Load<Texture2D>("res://assets/img/ideology/Fascism.png");
-				break;
+		{
+			switch (ideo) {
+				case Ideology.none:
+				case null:
+					ideology.Texture = null;
+					break;
+				case Ideology.Anarchism:
+				case Ideology.Fascism:
+				case Ideology.Communism:
+				case Ideology.Capitalism:
+					ideology.Texture = GD.Load<Texture2D>("res://assets/img/ideology/"+ideo.ToString()+".png");
+					break;
+			}
 		}
 		if (ideo != null) {
 			tfb.tfData.ChangeTeamForce((Ideology)ideo, +1);

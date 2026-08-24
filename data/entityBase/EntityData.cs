@@ -5,6 +5,8 @@ namespace IdeologySpreaderGame.data.entityBase {
 		none,
 		Anarchism,
 		Fascism,
+		Communism,
+		Capitalism,
 	}
 	internal class EntityData {
 		private Ideology? ideology=null;
