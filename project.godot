@@ -12,9 +12,13 @@ config_version=5
 
 config/name="IdeologySpreaderGame"
 config/version="0.1.0.20260824-alpha"
-run/main_scene="uid://c07p0mmgxm2qv"
+run/main_scene="uid://ohc3a57webtp"
 config/features=PackedStringArray("4.6", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+DataCore="*uid://br2fmkx6ll0t4"
 
 [display]
 

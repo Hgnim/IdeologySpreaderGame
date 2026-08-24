@@ -1,6 +1,5 @@
 using Godot;
 using IdeologySpreaderGame.data.scenes.main.teamForceBar;
-using IdeologySpreaderGame.scenes.main.teamForceBar;
 using System;
 using System.Collections.Generic;
 
@@ -23,6 +22,11 @@ public partial class TeamForceBar : Control {
 	private List<TeamForceBarData.TeamForce> teamForces = new();
 
 	internal TeamForceData tfData = new();
+
+	/// <summary>
+	/// 单位总数。属性值将随着绘制更新
+	/// </summary>
+	internal uint Total { get; set; } = 0;
 
 	void TeamForces_Changed() {
 		List<TeamForceBarData.TeamForce> tfs = [];
@@ -69,6 +73,7 @@ public partial class TeamForceBar : Control {
 			total += tf.Amount;
 
 		if (total <= 0) return;
+		Total = (uint)total;
 
 		Rect2 rect = new(Vector2.Zero, Size);
 		float currentX = 0f;

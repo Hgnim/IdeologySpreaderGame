@@ -2,7 +2,7 @@ using Godot;
 using Godot.Collections;
 using IdeologySpreaderGame.data.entityBase;
 
-namespace IdeologySpreaderGame.scenes.main.teamForceBar {
+namespace IdeologySpreaderGame.data.scenes.main.teamForceBar {
 	/// <summary>
 	/// 兵力条数据类
 	/// </summary>
