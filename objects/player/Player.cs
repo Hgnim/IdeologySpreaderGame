@@ -1,4 +1,5 @@
 using Godot;
+using IdeologySpreaderGame.data.entityBase;
 using IdeologySpreaderGame.objects.entityBase;
 
 namespace IdeologySpreaderGame.objects.player;
@@ -27,5 +28,11 @@ public partial class Player : EntityBase {
 	protected override void On_area2d_areaEntered(Area2D area) {
 		//GD.Print(area.GetNode<EntityBase>("..").EData.Ideology);
 		base.On_area2d_areaEntered(area);
+	}
+
+	protected override void goDie() {//玩家死亡则清空所有属性
+		EData.Ideology = Ideology.none;
+		EData.Exp = 0;
+		EData.Loyalty = 0;
 	}
 }

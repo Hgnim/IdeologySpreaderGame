@@ -140,3 +140,15 @@ position = Vector2(1279, 1587)
 
 [node name="npc42" parent="." index="46" unique_id=1995190429 instance=ExtResource("2_wi6r5")]
 position = Vector2(1333, 1829)
+
+[node name="npc43" parent="." index="49" unique_id=444489742 instance=ExtResource("2_wi6r5")]
+position = Vector2(561, 3554)
+initvalIdeology = 3
+initvalExp = 10
+initvalLoyalty = 100
+
+[node name="npc44" parent="." index="50" unique_id=1821085501 instance=ExtResource("2_wi6r5")]
+position = Vector2(4281, 587)
+initvalIdeology = 4
+initvalExp = 10
+initvalLoyalty = 100

@@ -84,28 +84,135 @@ public partial class EntityBase : RigidBody2D
 	void Loyalty_Change(int loy) => loyalty.Text = loy.ToString();
 
 
+	/// <summary>
+	/// 对当前实体执行死亡
+	/// </summary>
+	protected virtual void goDie() {
+		EData.Ideology = null;//销毁前把意识形态改为null，让其自动更新兵力条
+		QueueFree();
+	}
 	protected virtual void On_area2d_areaEntered(Area2D area) {
 		//if (!areaEntered_cooldown.IsStopped()) return;
 
 		EntityBase targetEB = area.GetNode<EntityBase>("..");
 
 
-		if (EData.Ideology == targetEB.EData.Ideology) {
-			EData.Loyalty += (int)(targetEB.EData.Exp / 2);
+		/*各派系能力：
+		无阵营：
+			触碰到同阵营时：
+				无变化
+			触碰到异阵营时：
+				无变化
+		安那其：
+			触碰到同阵营时：
+				对方忠诚值将添加，添加量为当前安那其阵营的单位数量
+			触碰到异阵营时：
+				对方的忠诚值将减少，减少量为自己经验值的一半
+			将对方忠诚值清零后/将无阵营忠诚值清零后：
+				将对方转化为自己阵营，对方经验值将保留并附加自己经验值的一半（自身经验值不会扣除），对方将获得自己两倍的忠诚值（自身忠诚值不会扣除）。自己增加一点经验值
+		法西斯：
+			触碰到同阵营时：
+				对方忠诚值将添加，添加量为自己的经验值
+			触碰到异阵营时：
+				对方的忠诚值将减少，减少量为自己的经验值
+			将对方忠诚值清零后：
+				如果对方经验高于自己，则对方将会被直接杀死；反之，将对方转化为自己阵营，对方将获得自己一半的经验值（自身经验值不会扣除，对方转化前的经验值不保留），对方将获得与自己相同的忠诚值（自身忠诚值不会扣除）。自己增加一点经验值
+			将无阵营忠诚值清零后：
+				将对方转化为自己阵营，对方将获得自己一半的经验值（自身经验值不会扣除，对方转化前的经验值不保留），对方将获得与自己相同的忠诚值（自身忠诚值不会扣除）。自己增加一点经验值
+			自己被对方清零忠诚值后：
+				宁死不屈，不会被对方转化
+		共产：
+			触碰到同阵营时：
+				对方忠诚值将添加，添加量为自己的经验值
+			触碰到异阵营时：
+				对方的忠诚值将减少，减少量为自己的经验值
+			将对方忠诚值清零后/将无阵营忠诚值清零后：
+				将对方转化为自己阵营，对方将获得与自己相同的经验值和忠诚值（自身经验值和忠诚值不会扣除，对方转化前的经验值不保留）。自己增加一点经验值
+		资本：
+			触碰到同阵营时：
+				对方忠诚值将添加，添加量为自己的经验值的两倍
+			触碰到异阵营时：
+				对方的忠诚值将减少，减少量为自己的经验值的两倍，并吸取对方一点经验值
+			将对方忠诚值清零后/将无阵营忠诚值清零后：
+				将对方转化为自己阵营，对方将获取自身一半的经验值与忠诚值（将自身一半的经验值和忠诚值给对方，对方转化前的经验值不保留）
+		*/
+		if (EData.Ideology == targetEB.EData.Ideology) {//同阵营逻辑
+			switch (targetEB.EData.Ideology) {//自身值变化
+				case Ideology.Anarchism:
+					EData.Loyalty += (int)tfb.tfData.TeamForces[Ideology.Anarchism].Amount;
+					break;
+				case Ideology.Fascism:
+				case Ideology.Communism:
+					EData.Loyalty += (int)targetEB.EData.Exp;
+					break;
+				case Ideology.Capitalism:
+					EData.Loyalty += (int)(targetEB.EData.Exp * 2);
+					break;
+			}
 		}
-		else {
-			if (targetEB.EData.Ideology != Ideology.none)
-				EData.Loyalty -= (int)targetEB.EData.Exp;
-			if (EData.Loyalty < 0) {
-				targetEB.EData.Exp++;
-				EData.Ideology = targetEB.EData.Ideology;
-				if (EData.Ideology == Ideology.none) {
-					EData.Exp = targetEB.EData.Exp / 3;
-					EData.Loyalty = targetEB.EData.Loyalty / 3;
+		else {//异阵营逻辑
+			if (targetEB.EData.Ideology != Ideology.none) {//对方不为无阵营时
+				switch (targetEB.EData.Ideology) {//自身值变化
+					case Ideology.Anarchism:
+						EData.Loyalty -= (int)(targetEB.EData.Exp / 2);
+						break;
+					case Ideology.Fascism:
+					case Ideology.Communism:
+						EData.Loyalty -= (int)targetEB.EData.Exp;
+						break;
+					case Ideology.Capitalism:
+						EData.Loyalty -= (int)(targetEB.EData.Exp * 2);
+						if (EData.Exp > 0) {
+							targetEB.EData.Exp++;
+							EData.Exp--;
+						}
+						break;
 				}
-				else {
-					EData.Loyalty = 0;
-					EData.Exp = EData.Exp / 2 + targetEB.EData.Exp / 3;
+				
+
+				if (EData.Loyalty <= 0) {//当自身忠诚值被清零后
+					switch (EData.Ideology) {
+						case Ideology.Fascism:
+							goDie();
+							break;
+						case Ideology.none:
+						case Ideology.Anarchism:
+						case Ideology.Communism:
+						case Ideology.Capitalism:
+							switch (targetEB.EData.Ideology) {
+								case Ideology.Anarchism:
+									targetEB.EData.Exp++;
+									EData.Ideology = targetEB.EData.Ideology;
+									EData.Exp += targetEB.EData.Exp / 2;
+									EData.Loyalty = targetEB.EData.Loyalty * 2;
+									break;
+								case Ideology.Fascism:
+									targetEB.EData.Exp++;
+									if (EData.Ideology == Ideology.none || EData.Exp <= targetEB.EData.Exp) {
+										EData.Ideology = targetEB.EData.Ideology;
+										EData.Exp = targetEB.EData.Exp / 2;
+										EData.Loyalty = targetEB.EData.Loyalty;
+									}
+									else {
+										goDie();
+									}
+									break;
+								case Ideology.Communism:
+									targetEB.EData.Exp++;
+									EData.Ideology = targetEB.EData.Ideology;
+									EData.Exp = targetEB.EData.Exp;
+									EData.Loyalty = targetEB.EData.Loyalty;
+									break;
+								case Ideology.Capitalism:
+									EData.Ideology = targetEB.EData.Ideology;
+									EData.Exp += targetEB.EData.Exp / 2;
+									EData.Loyalty = targetEB.EData.Loyalty / 2;
+									targetEB.EData.Exp /= 2;
+									targetEB.EData.Loyalty /= 2;
+									break;
+							}
+							break;
+					}
 				}
 			}
 		}
