@@ -19,7 +19,6 @@ public partial class Main : Node2D {
 	}
 
 	void InitGame(GameSetting gs) {
-		noneEntitySpawnTimer.WaitTime = (double)60 / (double)gs.NoneSpawnSpeed;
 		for(byte team = 0; team < 5; team++) {
 			EntityInitvalSetting[] eisPreset=[];
 			uint[] amount=[];
@@ -65,7 +64,10 @@ public partial class Main : Node2D {
 				}
 			}
 		}
-		noneEntitySpawnTimer.Start();
+		if (gs.NoneSpawnSpeed > 0) {
+			noneEntitySpawnTimer.WaitTime = (double)60 / (double)gs.NoneSpawnSpeed;
+			noneEntitySpawnTimer.Start();
+		}
 	}
 
 	void On_noneEntitySpawnTimer_timeout() {

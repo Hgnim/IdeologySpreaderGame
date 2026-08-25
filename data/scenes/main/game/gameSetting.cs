@@ -30,7 +30,8 @@ namespace IdeologySpreaderGame.data.scenes.main.game {
 		internal uint[] CapitalismAmount { get; set; } = [0];
 
 		/// <summary>
-		/// 无阵营单位的自动生成速度，单位：个/分钟
+		/// 无阵营单位的自动生成速度，单位：个/分钟<br/>
+		/// 设置为0时将禁用自动生成
 		/// </summary>
 		internal ushort NoneSpawnSpeed { get; set; } = 0;
 

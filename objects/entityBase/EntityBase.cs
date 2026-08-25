@@ -123,7 +123,7 @@ public partial class EntityBase : RigidBody2D
 				宁死不屈，不会被对方转化
 		共产：
 			触碰到同阵营时：
-				对方忠诚值将添加，添加量为自己的经验值。如果自身经验值不小于50，对方将添加一点经验值。
+				对方忠诚值将添加，添加量为自己的经验值。如果自身经验值不小于50，对方将在不超过自身经验的情况下添加一点经验值。
 			触碰到异阵营时：
 				对方的忠诚值将减少，减少量为自己的经验值
 			将对方忠诚值清零后/将无阵营忠诚值清零后：
@@ -135,6 +135,8 @@ public partial class EntityBase : RigidBody2D
 				对方的忠诚值将减少，减少量为自己的经验值的两倍，并消耗自己一点忠诚值以吸取对方一点经验值
 			将对方忠诚值清零后/将无阵营忠诚值清零后：
 				将对方转化为自己阵营，对方将获取自身一半的经验值与忠诚值（将自身一半的经验值和忠诚值给对方，对方转化前的经验值不保留）
+			自己被对方清零忠诚值后：
+				自己的经验值将被对方夺取
 		*/
 		if (EData.Ideology == targetEB.EData.Ideology) {//同阵营逻辑
 			switch (targetEB.EData.Ideology) {//自身值变化
@@ -148,7 +150,7 @@ public partial class EntityBase : RigidBody2D
 					break;
 				case Ideology.Communism:
 					EData.Loyalty += (int)targetEB.EData.Exp;
-					if (targetEB.EData.Exp >= 50)
+					if (targetEB.EData.Exp >= 50 && EData.Exp+1<targetEB.EData.Exp)
 						EData.Exp++;
 					break;
 				case Ideology.Capitalism:
@@ -195,6 +197,12 @@ public partial class EntityBase : RigidBody2D
 						case Ideology.Anarchism:
 						case Ideology.Communism:
 						case Ideology.Capitalism:
+							switch (EData.Ideology) {
+								case Ideology.Capitalism:
+									targetEB.EData.Exp += EData.Exp;
+									EData.Exp = 0;
+									break;
+							}
 							switch (targetEB.EData.Ideology) {
 								case Ideology.Anarchism:
 									targetEB.EData.Exp++;

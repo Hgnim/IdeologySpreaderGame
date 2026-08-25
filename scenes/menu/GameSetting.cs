@@ -5,7 +5,7 @@ using static IdeologySpreaderGame.data.scenes.main.game.GameSettingPreset;
 namespace IdeologySpreaderGame.scenes.menu;
 public partial class GameSetting : Panel
 {
-	Button[] btn=new Button[5+1];
+	Button[] btn=new Button[6+1];
 	byte btn_selIndex = 1;
 	OptionButton botDiff;
 	public override void _Ready()
@@ -41,6 +41,9 @@ public partial class GameSetting : Panel
 	void On_btn5_pressed() {
 		OnBtnClick(5);
 	}
+	void On_btn6_pressed() {
+		OnBtnClick(6);
+	}
 
 	internal data.scenes.main.game.GameSetting GetGameSetting() {
 		data.scenes.main.game.GameSetting output;
@@ -60,6 +63,9 @@ public partial class GameSetting : Panel
 				break;
 			case 5:
 				output = GameSettingPreset.BigCapitalism;
+				break;
+			case 6:
+				output = GameSettingPreset.BigNone;
 				break;
 		}
 		switch (botDiff.Selected) {

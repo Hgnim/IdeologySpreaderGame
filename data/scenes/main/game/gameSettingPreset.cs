@@ -7,7 +7,22 @@ namespace IdeologySpreaderGame.data.scenes.main.game {
 		/// 所有队伍平衡
 		/// </summary>
 		internal static readonly GameSetting AllTeamBalanced = new() {
-			EntityMax = 1000,
+			EntityMax = 200,
+			NoneSpawnSpeed = 20,
+			NoneAmount = [0],
+			AnarchismAmount = [0, 6, 20, 5, 1],
+			FascismAmount = [0, 6, 20, 5, 1],
+			CommunismAmount = [0, 6, 20, 5, 1],
+			CapitalismAmount = [0, 6, 20, 5, 1],
+			NoneSpawnPos = new(2500, 2500),
+			AnarchismSpawnPos = new(50, 4950),
+			FascismSpawnPos = new(4950, 50),
+			CommunismSpawnPos = new(50, 50),
+			CapitalismSpawnPos = new(4950, 4950),
+			BotSetting = BotDifficultyPreset.Normal,
+		};
+		internal static readonly GameSetting BigNone = new() {
+			EntityMax = 200,
 			NoneSpawnSpeed = 6,
 			NoneAmount = [100, 10, 5, 2, 1],
 			AnarchismAmount = [0, 0, 1],
@@ -19,10 +34,10 @@ namespace IdeologySpreaderGame.data.scenes.main.game {
 			FascismSpawnPos = new(4950, 50),
 			CommunismSpawnPos = new(50, 50),
 			CapitalismSpawnPos = new(4950, 4950),
-			BotSetting=BotDifficultyPreset.Normal,
+			BotSetting = BotDifficultyPreset.Normal,
 		};
 		internal static readonly GameSetting BigAnarchism = new() {
-			EntityMax = 1000,
+			EntityMax = 200,
 			NoneSpawnSpeed = 12,
 			NoneAmount = [20, 4, 3, 2, 1],
 			AnarchismAmount = [100],
@@ -37,7 +52,7 @@ namespace IdeologySpreaderGame.data.scenes.main.game {
 			BotSetting = BotDifficultyPreset.Normal,
 		};
 		internal static readonly GameSetting BigFascism = new() {
-			EntityMax = 1000,
+			EntityMax = 200,
 			NoneSpawnSpeed = 12,
 			NoneAmount = [20, 4, 3, 2, 1],
 			AnarchismAmount = [0, 0, 0, 0, 1],
@@ -52,7 +67,7 @@ namespace IdeologySpreaderGame.data.scenes.main.game {
 			BotSetting = BotDifficultyPreset.Normal,
 		};
 		internal static readonly GameSetting BigCommunism = new() {
-			EntityMax = 1000,
+			EntityMax = 200,
 			NoneSpawnSpeed = 12,
 			NoneAmount = [20, 4, 3, 2, 1],
 			AnarchismAmount = [0, 0, 0, 0, 1],
@@ -67,7 +82,7 @@ namespace IdeologySpreaderGame.data.scenes.main.game {
 			BotSetting = BotDifficultyPreset.Normal,
 		};
 		internal static readonly GameSetting BigCapitalism = new() {
-			EntityMax = 1000,
+			EntityMax = 200,
 			NoneSpawnSpeed = 12,
 			NoneAmount = [20, 4, 3, 2, 1],
 			AnarchismAmount = [0, 0, 0, 0, 1],

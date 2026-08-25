@@ -46,7 +46,7 @@ offset_top = 883.0
 offset_right = 684.0
 offset_bottom = 917.0
 theme_override_font_sizes/font_size = 24
-text = "版本：0.2.0.20260824-alpha"
+text = "版本：0.3.0.20260825-alpha"
 script = ExtResource("2_mcvr8")
 
 [node name="github" type="Label" parent="." unique_id=1549255669]
@@ -164,6 +164,15 @@ offset_bottom = 240.0
 theme_override_font_sizes/font_size = 18
 text = "大资本"
 
+[node name="btn6" type="Button" parent="gameSetting/preset" unique_id=2085916839]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 248.0
+offset_right = 236.0
+offset_bottom = 282.0
+theme_override_font_sizes/font_size = 18
+text = "大无阵营"
+
 [node name="Label" type="Label" parent="gameSetting" unique_id=1249751632]
 layout_mode = 0
 offset_left = 395.0
@@ -212,3 +221,4 @@ popup/item_4/id = 4
 [connection signal="pressed" from="gameSetting/preset/btn3" to="gameSetting" method="On_btn3_pressed"]
 [connection signal="pressed" from="gameSetting/preset/btn4" to="gameSetting" method="On_btn4_pressed"]
 [connection signal="pressed" from="gameSetting/preset/btn5" to="gameSetting" method="On_btn5_pressed"]
+[connection signal="pressed" from="gameSetting/preset/btn6" to="gameSetting" method="On_btn6_pressed"]
