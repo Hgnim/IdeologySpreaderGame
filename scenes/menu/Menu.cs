@@ -8,12 +8,14 @@ public partial class Menu : Control
 {
 
 	DataCore dataCore;
+	GameSetting gameSetting;
 	public override void _Ready() {
 		dataCore = GetNode<DataCore>("/root/DataCore");
+		gameSetting = GetNode<GameSetting>("gameSetting");
 	}
 
 	void On_startGame_pressed() {
-		dataCore.GameSetting = GameSettingPreset.AllTeamBalanced;
+		dataCore.GameSetting = gameSetting.GetGameSetting();
 		GetTree().ChangeSceneToFile("res://scenes/main/main.tscn");
 	}
 }

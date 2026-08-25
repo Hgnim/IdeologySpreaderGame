@@ -21,6 +21,66 @@ namespace IdeologySpreaderGame.data.scenes.main.game {
 			CapitalismSpawnPos = new(4950, 4950),
 			BotSetting=BotDifficultyPreset.Normal,
 		};
+		internal static readonly GameSetting BigAnarchism = new() {
+			EntityMax = 1000,
+			NoneSpawnSpeed = 12,
+			NoneAmount = [20, 4, 3, 2, 1],
+			AnarchismAmount = [100],
+			FascismAmount = [0, 0, 0, 0, 1],
+			CommunismAmount = [0, 0, 0, 0, 1],
+			CapitalismAmount = [0, 0, 0, 0, 1],
+			NoneSpawnPos = new(2500, 2500),
+			AnarchismSpawnPos = new(50, 4950),
+			FascismSpawnPos = new(4950, 50),
+			CommunismSpawnPos = new(50, 50),
+			CapitalismSpawnPos = new(4950, 4950),
+			BotSetting = BotDifficultyPreset.Normal,
+		};
+		internal static readonly GameSetting BigFascism = new() {
+			EntityMax = 1000,
+			NoneSpawnSpeed = 12,
+			NoneAmount = [20, 4, 3, 2, 1],
+			AnarchismAmount = [0, 0, 0, 0, 1],
+			FascismAmount = [50, 20, 10, 5, 2],
+			CommunismAmount = [0, 0, 0, 0, 1],
+			CapitalismAmount = [0, 0, 0, 0, 1],
+			NoneSpawnPos = new(2500, 2500),
+			AnarchismSpawnPos = new(50, 4950),
+			FascismSpawnPos = new(4950, 50),
+			CommunismSpawnPos = new(50, 50),
+			CapitalismSpawnPos = new(4950, 4950),
+			BotSetting = BotDifficultyPreset.Normal,
+		};
+		internal static readonly GameSetting BigCommunism = new() {
+			EntityMax = 1000,
+			NoneSpawnSpeed = 12,
+			NoneAmount = [20, 4, 3, 2, 1],
+			AnarchismAmount = [0, 0, 0, 0, 1],
+			FascismAmount = [0, 0, 0, 0, 1],
+			CommunismAmount = [50, 20, 10, 5, 2],
+			CapitalismAmount = [0, 0, 0, 1],
+			NoneSpawnPos = new(2500, 2500),
+			AnarchismSpawnPos = new(50, 4950),
+			FascismSpawnPos = new(4950, 50),
+			CommunismSpawnPos = new(50, 50),
+			CapitalismSpawnPos = new(4950, 4950),
+			BotSetting = BotDifficultyPreset.Normal,
+		};
+		internal static readonly GameSetting BigCapitalism = new() {
+			EntityMax = 1000,
+			NoneSpawnSpeed = 12,
+			NoneAmount = [20, 4, 3, 2, 1],
+			AnarchismAmount = [0, 0, 0, 0, 1],
+			FascismAmount = [0, 0, 0, 0, 1],
+			CommunismAmount = [0, 0, 0, 0, 1],
+			CapitalismAmount = [5, 20, 50, 5, 1],
+			NoneSpawnPos = new(2500, 2500),
+			AnarchismSpawnPos = new(50, 4950),
+			FascismSpawnPos = new(4950, 50),
+			CommunismSpawnPos = new(50, 50),
+			CapitalismSpawnPos = new(4950, 4950),
+			BotSetting = BotDifficultyPreset.Normal,
+		};
 
 		/// <summary>
 		/// 机器人难度预设

@@ -1,7 +1,8 @@
 using Godot;
 
 namespace IdeologySpreaderGame.data.scenes.main.game {
-	internal class GameSetting {
+	internal struct GameSetting {
+		public GameSetting() { }
 		/// <summary>
 		/// 单位最大阈值，超过此阈值后将不再执行单位自动生成
 		/// </summary>
@@ -59,7 +60,7 @@ namespace IdeologySpreaderGame.data.scenes.main.game {
 		/// </summary>
 		internal required BotSetting BotSetting { get; set; }
 	}
-	internal class BotSetting {
+	internal struct BotSetting {
 		private float acceleration;
 		/// <summary>
 		/// 机器人加速度倍率<br/>
