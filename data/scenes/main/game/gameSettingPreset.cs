@@ -19,6 +19,38 @@ namespace IdeologySpreaderGame.data.scenes.main.game {
 			FascismSpawnPos = new(4950, 50),
 			CommunismSpawnPos = new(50, 50),
 			CapitalismSpawnPos = new(4950, 4950),
+			BotSetting=BotDifficultyPreset.Normal,
 		};
+
+		/// <summary>
+		/// 机器人难度预设
+		/// </summary>
+		internal static class BotDifficultyPreset {
+			internal static readonly BotSetting Easy = new() {
+				Acceleration = .005f,
+				MaxSpeed = .65f,
+				LostTargetWaitTime = 10,
+			};
+			internal static readonly BotSetting Normal = new() {
+				Acceleration = .05f,
+				MaxSpeed = .85f,
+				LostTargetWaitTime = 5,
+			};
+			internal static readonly BotSetting Hard = new() {
+				Acceleration = .5f,
+				MaxSpeed = 1,
+				LostTargetWaitTime = 3,
+			};
+			internal static readonly BotSetting VeryHard = new() {
+				Acceleration = 1f,
+				MaxSpeed = 1.2f,
+				LostTargetWaitTime = 1,
+			};
+			internal static readonly BotSetting Hell = new() {
+				Acceleration = 2,
+				MaxSpeed = 1.6f,
+				LostTargetWaitTime = -1,
+			};
+		}
 	}
 }

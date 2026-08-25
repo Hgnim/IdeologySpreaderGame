@@ -30,7 +30,7 @@ public partial class Player : EntityBase {
 		base.On_area2d_areaEntered(area);
 	}
 
-	protected override void goDie() {//玩家死亡则清空所有属性
+	protected override void GoDie() {//玩家死亡则清空所有属性
 		EData.Ideology = Ideology.none;
 		EData.Exp = 0;
 		EData.Loyalty = 0;

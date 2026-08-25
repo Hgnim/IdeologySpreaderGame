@@ -53,5 +53,46 @@ namespace IdeologySpreaderGame.data.scenes.main.game {
 		/// 资本单位生成位置坐标
 		/// </summary>
 		internal required Vector2 CapitalismSpawnPos { get; set; }
+
+		/// <summary>
+		/// 机器人难度
+		/// </summary>
+		internal required BotSetting BotSetting { get; set; }
 	}
+	internal class BotSetting {
+		private float acceleration;
+		/// <summary>
+		/// 机器人加速度倍率<br/>
+		/// 不可为零或负，1则是正常加速度（与玩家加速度相匹配）
+		/// </summary>
+		internal required float Acceleration {
+			get => acceleration;
+			set {
+				if (value < 0) acceleration = 0.001f;
+				else {
+					acceleration = value;
+				}
+			}
+		}
+
+		private float maxSpeed;
+		/// <summary>
+		/// 机器人最大速度倍率<br/>
+		/// 不可为零或负，1则是正常最大速度（与玩家最大速度相匹配）
+		/// </summary>
+		internal required float MaxSpeed {
+			get => maxSpeed;
+			set {
+				if (value < 0) maxSpeed = 0.001f;
+				else maxSpeed = value;
+			}
+		}
+
+		/// <summary>
+		/// 机器人丢失目标后寻找下一个目标前的等待时间，单位：秒<br/>
+		/// 设置为负数则禁用等待时间
+		/// </summary>
+		internal required double LostTargetWaitTime { get; set; }
+	}
+	
 }

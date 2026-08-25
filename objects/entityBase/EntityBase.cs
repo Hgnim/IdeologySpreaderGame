@@ -87,7 +87,7 @@ public partial class EntityBase : RigidBody2D
 	/// <summary>
 	/// 对当前实体执行死亡
 	/// </summary>
-	protected virtual void goDie() {
+	protected virtual void GoDie() {
 		EData.Ideology = null;//销毁前把意识形态改为null，让其自动更新兵力条
 		QueueFree();
 	}
@@ -173,7 +173,14 @@ public partial class EntityBase : RigidBody2D
 				if (EData.Loyalty <= 0) {//当自身忠诚值被清零后
 					switch (EData.Ideology) {
 						case Ideology.Fascism:
-							goDie();
+							switch (targetEB.EData.Ideology) {
+								case Ideology.Anarchism:
+								case Ideology.Fascism:
+								case Ideology.Communism:
+									targetEB.EData.Exp++;
+									break;
+							}
+							GoDie();
 							break;
 						case Ideology.none:
 						case Ideology.Anarchism:
@@ -194,7 +201,7 @@ public partial class EntityBase : RigidBody2D
 										EData.Loyalty = targetEB.EData.Loyalty;
 									}
 									else {
-										goDie();
+										GoDie();
 									}
 									break;
 								case Ideology.Communism:
