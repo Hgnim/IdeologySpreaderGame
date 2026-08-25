@@ -9,3 +9,6 @@ script = ExtResource("2_g7ett")
 [node name="Camera2D" type="Camera2D" parent="." index="2" unique_id=559762278]
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
+
+[node name="ColorRect" parent="." index="3" unique_id=523258983]
+color = Color(0.53614324, 0.63208807, 0.7443876, 1)
