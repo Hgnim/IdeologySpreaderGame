@@ -81,4 +81,8 @@ public partial class Main : Node2D {
 			GetTree().CurrentScene.AddChild(npc);
 		}
 	}
+
+	void On_exitToMenu_pressed() {
+		GetTree().ChangeSceneToFile("res://scenes/menu/menu.tscn");
+	}
 }

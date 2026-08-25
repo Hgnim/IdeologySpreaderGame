@@ -63,7 +63,19 @@ script = ExtResource("3_k2fmo")
 BorderWidth = 2.0
 BorderColor = Color(0.13319641, 0.13319641, 0.13319638, 1)
 
+[node name="exitToMenu" type="Button" parent="ui" unique_id=86702780]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -110.0
+offset_top = 6.0
+offset_right = -6.0
+offset_bottom = 37.0
+grow_horizontal = 0
+text = "退出到主菜单"
+
 [node name="noneEntitySpawnTimer" type="Timer" parent="." unique_id=1356266048]
 ignore_time_scale = true
 
+[connection signal="pressed" from="ui/exitToMenu" to="." method="On_exitToMenu_pressed"]
 [connection signal="timeout" from="noneEntitySpawnTimer" to="." method="On_noneEntitySpawnTimer_timeout"]
