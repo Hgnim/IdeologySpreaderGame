@@ -10,7 +10,7 @@ bounce = 1.0
 size = Vector2(40, 40)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rkw4c"]
-radius = 1500.0
+radius = 2500.0
 
 [node name="entityBase" type="RigidBody2D" unique_id=1188330280]
 physics_material_override = SubResource("PhysicsMaterial_rkw4c")

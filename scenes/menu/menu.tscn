@@ -46,7 +46,7 @@ offset_top = 883.0
 offset_right = 684.0
 offset_bottom = 917.0
 theme_override_font_sizes/font_size = 24
-text = "版本：0.3.0.20260825-alpha"
+text = "版本：0.3.1.20260825-alpha"
 script = ExtResource("2_mcvr8")
 
 [node name="github" type="Label" parent="." unique_id=1549255669]

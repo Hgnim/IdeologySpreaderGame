@@ -24,6 +24,8 @@ DataCore="*uid://br2fmkx6ll0t4"
 
 window/size/viewport_width=1280
 window/size/viewport_height=960
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [dotnet]
 
